@@ -1,7 +1,7 @@
 ---
 theme: seriph
 background: https://cover.sli.dev
-title: My Presentation Template
+title: History of Architecture
 class: text-center
 drawings:
   persist: false
@@ -11,9 +11,9 @@ hideInToc: true
 lineNumbers: true
 ---
 
-# My Presentation Template
+# History of Architecture
 
-20yy/mm/dd presentation for XXXX
+2024/08/dd presentation for 社内勉強会
 
 @kazu_kichi_67
 
@@ -43,6 +43,483 @@ hideInToc: true
 
 <br>
 <Toc maxDepth="2"/>
+
+---
+layout: section
+---
+
+# アーキテクチャーの変遷
+
+---
+layout: section
+---
+
+## システム全体編
+
+---
+
+### モノリス
+
+***
+
+<div class="grid grid-cols-[30%_70%] gap-4">
+
+<div>
+<br>
+
+図
+
+</div>
+
+<div>
+
+<br>
+
+### メリット
+
+- ほげ
+
+<br>
+
+### デメリット
+
+- ほげ
+
+ほげ
+
+</div>
+</div>
+
+---
+
+### マイクロサービス
+
+***
+
+<div class="grid grid-cols-[30%_70%] gap-4">
+
+<div>
+<br>
+
+図
+
+</div>
+
+<div>
+
+<br>
+
+### メリット
+
+- ほげ
+
+<br>
+
+### デメリット
+
+- ほげ
+
+ほげ
+
+</div>
+</div>
+
+---
+
+### モジュラモノリス
+
+***
+
+<div class="grid grid-cols-[30%_70%] gap-4">
+
+<div>
+<br>
+
+図
+
+</div>
+
+<div>
+
+<br>
+
+### メリット
+
+- ほげ
+
+<br>
+
+### デメリット
+
+- ほげ
+
+ほげ
+
+</div>
+</div>
+
+---
+layout: section
+---
+
+## フロントエンド編
+
+---
+
+### MVC
+
+***
+
+<div class="grid grid-cols-[30%_70%] gap-4">
+
+<div>
+<br>
+
+図
+
+</div>
+
+<div>
+
+<br>
+
+### メリット
+
+- ほげ
+
+<br>
+
+### デメリット
+
+- ほげ
+
+ほげ
+
+</div>
+</div>
+
+---
+
+### MVP
+
+***
+
+<div class="grid grid-cols-[30%_70%] gap-4">
+
+<div>
+<br>
+
+図
+
+</div>
+
+<div>
+
+<br>
+
+### メリット
+
+- ほげ
+
+<br>
+
+### デメリット
+
+- ほげ
+
+ほげ
+
+</div>
+</div>
+
+---
+
+### MVVM
+
+***
+
+<div class="grid grid-cols-[30%_70%] gap-4">
+
+<div>
+<br>
+
+図
+
+</div>
+
+<div>
+
+<br>
+
+### メリット
+
+- データバインディング
+
+<br>
+
+### デメリット
+
+- ほげ
+
+ほげ
+
+</div>
+</div>
+
+---
+layout: section
+---
+
+## バックエンド編
+
+---
+
+### レイヤードアーキテクチャ
+
+***
+
+<div class="grid grid-cols-[30%_70%] gap-4">
+
+<div>
+<br>
+
+```mermaid
+flowchart LR
+    subgraph "レイヤードアーキテクチャ"
+    direction TB
+    A["プレゼンテーション（インターフェース）層"]
+    B["ユースケース(アプリケーション)層"]
+    C["ドメイン(ビジネスロジック)層"]
+    D["インフラストラクチャー（データアクセス）層"]
+    
+    A --> B
+    B --> C
+    C --> D
+    end
+
+    style A fill:#FFA500,stroke:#000,stroke-width:2px,color:#000
+    style B fill:#FFFF00,stroke:#000,stroke-width:2px,color:#000
+    style C fill:#ADD8E6,stroke:#000,stroke-width:2px,color:#000
+    style D fill:#90EE90,stroke:#000,stroke-width:2px,color:#000
+```
+
+※ 矢印は依存の向き
+
+※ 3層の場合もある（層の数に決まりはない）
+
+</div>
+
+<div>
+
+<br>
+
+### メリット
+
+- 各層に特定の役割（責務）を与えることで、コードの見通しが良くなる（単一責任の原則 SRP）
+- 上層の変更に対して、下層が影響を受けない
+  - 使い回しが出来る
+
+<br>
+
+### デメリット
+
+- 下層の変更によって、上層が影響を受ける
+- つまり、インフラストラクチャーを変更すると、ビジネスロジックが影響を受けてしまう
+
+ビジネスに価値を提供するビジネスロジック(ドメイン)が最も重要で、そこに注力したい！
+
+</div>
+</div>
+
+---
+
+### ヘキサゴナルアーキテクチャ
+
+***
+
+<div class="grid grid-cols-[30%_70%] gap-4">
+
+<div>
+<br>
+
+図
+
+</div>
+
+<div>
+
+<br>
+
+### メリット
+
+- ほげ
+
+<br>
+
+### デメリット
+
+- ほげ
+
+ほげ
+
+</div>
+</div>
+
+---
+
+### オニオンアーキテクチャ
+
+***
+
+<div class="grid grid-cols-[30%_70%] gap-4">
+
+<div>
+<br>
+
+図
+
+</div>
+
+<div>
+
+<br>
+
+### メリット
+
+- ほげ
+
+<br>
+
+### デメリット
+
+- ほげ
+
+ほげ
+
+</div>
+</div>
+
+---
+
+### クリーンアーキテクチャ
+
+***
+
+<div class="grid grid-cols-[30%_70%] gap-4">
+
+<div>
+<br>
+
+図
+
+</div>
+
+<div>
+
+<br>
+
+### メリット
+
+- ほげ
+
+<br>
+
+### デメリット
+
+- ほげ
+
+ほげ
+
+</div>
+</div>
+
+---
+layout: section
+---
+
+# トレンドアーキテクチャー
+
+---
+layout: section
+---
+
+## CQRS
+
+---
+
+### CQRS
+
+***
+
+<div class="grid grid-cols-[30%_70%] gap-4">
+
+<div>
+<br>
+
+図
+
+</div>
+
+<div>
+
+<br>
+
+### メリット
+
+- ほげ
+
+<br>
+
+### デメリット
+
+- ほげ
+
+ほげ
+
+</div>
+</div>
+
+---
+layout: section
+---
+
+## Event Scourcing
+
+---
+
+### Event Scourcing
+
+***
+
+<div class="grid grid-cols-[30%_70%] gap-4">
+
+<div>
+<br>
+
+図
+
+</div>
+
+<div>
+
+<br>
+
+### メリット
+
+- 耐障害性
+- 弾力性
+
+<br>
+
+### デメリット
+
+- 障害に追いづらい
+  - オブザーバビリティが重要
+
+ほげ
+
+</div>
+</div>
 
 ---
 layout: section
