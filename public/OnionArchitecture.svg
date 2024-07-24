@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <circle cx="200" cy="200" r="190" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <circle cx="200" cy="200" r="150" fill="#d9d9d9" stroke="#333" stroke-width="2"/>
+  <circle cx="200" cy="200" r="110" fill="#bfbfbf" stroke="#333" stroke-width="2"/>
+  <circle cx="200" cy="200" r="70" fill="#a6a6a6" stroke="#333" stroke-width="2"/>
+  
+  <text x="200" y="205" text-anchor="middle" font-size="14" font-weight="bold">Domain Model</text>
+  <text x="200" y="125" text-anchor="middle" font-size="14">Domain Service</text>
+  <text x="200" y="85" text-anchor="middle" font-size="14">Application Service</text>
+  
+  <text x="200" y="35" text-anchor="middle" font-size="14" font-weight="bold">Infrastructure</text>
+  <text x="30" y="205" text-anchor="middle" font-size="14" font-weight="bold">UI</text>
+  <text x="200" y="375" text-anchor="middle" font-size="14" font-weight="bold">Tests</text>
+</svg>
