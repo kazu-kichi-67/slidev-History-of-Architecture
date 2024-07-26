@@ -13,7 +13,7 @@ lineNumbers: true
 
 # History of Architecture
 
-2024/08/dd presentation for 社内勉強会
+2024/08/01 presentation for 社内勉強会
 
 @kazu_kichi_67
 
@@ -199,9 +199,6 @@ layout: section
 
 <br>
 
-### 概要
-
-- Model - View - Controllerに分割する
 - Classic MVC、MVC 2とか存在する
 - Controllerが入力を受け付けて、Model-Viewの橋渡しを行う
 - Struts、Spring MVC、Laravel、CakePHP、FuelPHP、Ruby on Rails
@@ -242,9 +239,6 @@ layout: section
 
 <br>
 
-### 概要
-
-- Model - View - Presenterに分離する
 - PresenterがModelとViewの仲介を行う
 
 <br>
@@ -285,9 +279,6 @@ layout: section
 
 <br>
 
-### 概要
-
-- Model - View - ViewModelに分割する
 - データバインディング
   - React.js: 単方向バインディング、Vue.ja: 双方向バインディング
 
@@ -366,8 +357,6 @@ flowchart LR
 - 下層の変更によって、上層が影響を受ける
 - つまり、インフラストラクチャーを変更すると、ビジネスロジックが影響を受けてしまう
 
-ビジネスに価値を提供するビジネスロジック(ドメイン)が最も重要で、そこに注力したい！
-
 </div>
 </div>
 
@@ -381,9 +370,30 @@ flowchart LR
 
 <div>
 <br>
-<br>
 
 <img src="/HexagonalArchitecture.drawio.svg" />
+
+<br>
+
+```mermaid
+flowchart LR
+    subgraph "依存性逆転の原則(DIP)"
+    direction TB
+    A["プレゼンテーション層"]
+    B["ユースケース層"]
+    C["ドメイン層"]
+    D["インフラストラクチャー層"]
+    
+    A --> B
+    B --> C
+    D --> C
+    end
+
+    style A fill:#FFA500,stroke:#000,stroke-width:2px,color:#000
+    style B fill:#FFFF00,stroke:#000,stroke-width:2px,color:#000
+    style C fill:#ADD8E6,stroke:#000,stroke-width:2px,color:#000
+    style D fill:#90EE90,stroke:#000,stroke-width:2px,color:#000
+```
 
 </div>
 
@@ -391,17 +401,21 @@ flowchart LR
 
 <br>
 
+- 別名、Ports and Adapters
+
+<br>
+
 ### メリット
 
-- ほげ
+- Port層によってApplicationが守られているので、外部の変更に対して強い
+- Application（ビジネスロジック）の独立性が高く、テストが容易
 
 <br>
 
 ### デメリット
 
-- ほげ
-
-ほげ
+- 初期の設計が複雑になりがち
+- 小規模なシステムだと過剰な設計になりうる
 
 </div>
 </div>
@@ -425,17 +439,22 @@ flowchart LR
 
 <br>
 
+- ドメインを中心にして設計される
+- 外から中への依存
+
+<br>
+
 ### メリット
 
-- ほげ
+- ドメインが何にも依存せず、外側の影響を受けない
+- テストが容易
+- ビジネスロジックの再利用性が高い
 
 <br>
 
 ### デメリット
 
-- ほげ
-
-ほげ
+- 小規模なシステムには不向き
 
 </div>
 </div>
@@ -460,6 +479,11 @@ flowchart LR
 
 <br>
 
+- ドメイン（エンティティ）を中心にして設計される
+- 外から中への依存
+
+<br>
+
 ### メリット
 
 - ほげ
@@ -468,12 +492,28 @@ flowchart LR
 
 ### デメリット
 
-- ほげ
-
-ほげ
+- 小規模なシステムだと、作るものが多く冗長になりうる
+- 初期の学習コストが最も高い
 
 </div>
 </div>
+
+---
+
+### ドメイン駆動設計（DDD）
+
+***
+
+<br>
+
+- 戦術的DDD
+  - 実装パターンやレイヤー設計のパターン
+  - Repository、Domain Service、Value Object、Entityなど
+  - こちらのみ：軽量DDD
+- 戦略的DDD
+  - ドメイン（システムにおける本質的に重要な部分、ビジネスロジック）をモデリングする手法
+  - ユビキタス言語、境界づけられたコンテキスト、ドメインエキスパート、サブドメインなど
+  - 手法：イベントストーミング、ユースケース分析、ドメインストーリーテリングなど
 
 ---
 layout: section
