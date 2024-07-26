@@ -67,7 +67,7 @@ layout: section
 <div>
 <br>
 
-図
+<img src="/monolith.drawio.svg" />
 
 </div>
 
@@ -77,7 +77,8 @@ layout: section
 
 ### メリット
 
-- 1つのアプリケーションのため、デプロイ
+- 1つのアプリケーションのため、デプロイが容易
+- スタートアップであれば、これで十分な場合も多い
 
 <br>
 
@@ -88,8 +89,6 @@ layout: section
   - 影響範囲の特定すら難しく、サービス品質が低下する
 - 機能毎にスケールすることが出来ない（弾力性×）
 - 1つのアプリケーションがダウンすると、そのままサービス停止へ（耐障害性×）
-
-機能毎にアプリケーションを分離しよう！
 
 </div>
 </div>
@@ -105,7 +104,7 @@ layout: section
 <div>
 <br>
 
-図
+<img src="/microService.drawio.svg" />
 
 </div>
 
@@ -145,7 +144,7 @@ layout: section
 <div>
 <br>
 
-図
+<img src="/modularMonolith.drawio.svg" />
 
 </div>
 
@@ -159,7 +158,6 @@ layout: section
 
 - デプロイ、サービス管理のコストが低め
 - モジュール間のやり取りでオーバーヘッドが少ない
-- 解析時に流れを追いやすい
 - オーケストレーター層を置いてトランザクション管理することも可能
 - モジュール間の境界を見誤っても、リカバリしやすい
 
@@ -170,8 +168,8 @@ layout: section
 - マイクロサービスほど自由にスケール出来ない
 - モジュール境界の管理をしっかりやらないと、モノリスと変わらなくなる
 
-うまく作れば将来的にマイクロサービス化も狙える！
-組織のスケールに合わせて適切にマイクロサービス化しましょう。
+マイクロサービスとモジュラモノリスのハイブリットもおすすめ。
+組織のスケールに合わせて少しずつマイクサービスへ移行する！
 
 </div>
 </div>
@@ -193,7 +191,7 @@ layout: section
 <div>
 <br>
 
-図
+<img src="/MVC.drawio.svg" />
 
 </div>
 
@@ -201,17 +199,26 @@ layout: section
 
 <br>
 
+### 概要
+
+- Model - View - Controllerに分割する
+- Classic MVC、MVC 2とか存在する
+- Controllerが入力を受け付けて、Model-Viewの橋渡しを行う
+- Struts、Spring MVC、Laravel、CakePHP、FuelPHP、Ruby on Rails
+
+<br>
+
 ### メリット
 
-- ほげ
+- View（画面のレイアウト）とModel(ビジネスロジックやデータ管理)を分離できる
+- 同じModelでViewだけ切り替えることが可能
 
 <br>
 
 ### デメリット
 
-- ほげ
-
-ほげ
+- 大規模アプリケーションでは、Controllerが肥大化しやすい
+- ViewとModelの結合度が高くなりがち
 
 </div>
 </div>
@@ -227,7 +234,7 @@ layout: section
 <div>
 <br>
 
-図
+<img src="/MVP.drawio.svg" />
 
 </div>
 
@@ -235,17 +242,26 @@ layout: section
 
 <br>
 
+### 概要
+
+- Model - View - Presenterに分離する
+- PresenterがModelとViewの仲介を行う
+
+<br>
+
 ### メリット
 
-- ほげ
+- Presenterがイベントハンドリングを担う
+ - ViewがModelの変更を監視する(Observe)パターン
+ - パッシブビュー(Passive View)
+- パッシブビューによって完全にViewと分離できるので、よりテストがしやすい
 
 <br>
 
 ### デメリット
 
-- ほげ
-
-ほげ
+- Presenterが肥大化しやすい
+- ViewとPresenterの1対1の関係が必要で、柔軟性に欠ける場合がある
 
 </div>
 </div>
@@ -261,7 +277,7 @@ layout: section
 <div>
 <br>
 
-図
+<img src="/MVVM.drawio.svg" />
 
 </div>
 
@@ -269,17 +285,23 @@ layout: section
 
 <br>
 
+### 概要
+
+- Model - View - ViewModelに分割する
+- データバインディング
+  - React.js: 単方向バインディング、Vue.ja: 双方向バインディング
+
+<br>
+
 ### メリット
 
-- データバインディング
+- MVPとそこまで変わらないが、ViewとViewModelの連携をフレームワークが担ってくれる
 
 <br>
 
 ### デメリット
 
-- ほげ
-
-ほげ
+- 最初の学習コストが高い
 
 </div>
 </div>
