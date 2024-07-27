@@ -45,6 +45,42 @@ hideInToc: true
 <Toc maxDepth="2"/>
 
 ---
+hideInToc: true
+---
+
+# はじめに
+
+***
+
+- アーキテクチャの思想を知ることの重要性
+  - システムの理解を早める
+  - アンチパターンを避ける
+  - 保守性、品質、開発効率の向上
+  - 上流工程への参画
+  - <span v-mark.circle.orange>市場価値の向上</span>
+- 2025年の壁
+  - 既存システムのレガシーシステム化
+    - リプレイス案件の増加が予想される
+  - IT人材不足
+    - 人が多ければいいってもんじゃない
+    - 最新トレンドに沿った、リアーキテクティングのスキルが重要
+
+今、<span v-mark.red>本当に現場で求められているスキル</span>を学びましょう
+
+---
+hideInToc: true
+---
+
+# 注意点
+
+***
+
+<br>
+
+- 情報量が多いので、この場で全てを理解するのは難しいと思います
+- 頻出単語の関連性や、IT業界全体の流れを把握し、<span v-mark.red>今後の勉強の足掛かり</span>にしてほしい
+
+---
 layout: section
 ---
 
@@ -77,18 +113,26 @@ layout: section
 
 ### メリット
 
+<v-click>
+
 - 1つのアプリケーションのため、デプロイが容易
 - スタートアップであれば、これで十分な場合も多い
+
+</v-click>
 
 <br>
 
 ### デメリット
+
+<v-click>
 
 - アプリケーションが多くなればなるほど複雑化しやすい（Big Ball of Mat: 大きな泥団子）
   - 修正に対する影響範囲が広く、開発スピードが低下する
   - 影響範囲の特定すら難しく、サービス品質が低下する
 - 機能毎にスケールすることが出来ない（弾力性×）
 - 1つのアプリケーションがダウンすると、そのままサービス停止へ（耐障害性×）
+
+</v-click>
 
 </div>
 </div>
@@ -114,14 +158,20 @@ layout: section
 
 ### メリット
 
+<v-click>
+
 - 機能毎に疎結合となり、互いに修正の影響を受けづらい
 - 機能単位でのデプロイ、スケーリングが可能
 - 障害の影響を最小限にできる
 - コンテナ環境と相性が良い
 
+</v-click>
+
 <br>
 
 ### デメリット
+
+<v-click>
 
 - デプロイ、サービス管理のコストが高い
 - マイクロサービス間通信によるオーバーヘッド
@@ -129,6 +179,8 @@ layout: section
 - トランザクションを貼れないため、データの一貫性を担保しづらい
   - sagaパターン
 - マイクロサービス間の境界を見極めるのが難しい
+
+</v-click>
 
 </div>
 </div>
@@ -156,20 +208,32 @@ layout: section
 
 ### メリット
 
+<v-click>
+
 - デプロイ、サービス管理のコストが低め
 - モジュール間のやり取りでオーバーヘッドが少ない
 - オーケストレーター層を置いてトランザクション管理することも可能
 - モジュール間の境界を見誤っても、リカバリしやすい
 
+</v-click>
+
 <br>
 
 ### デメリット
 
+<v-click>
+
 - マイクロサービスほど自由にスケール出来ない
 - モジュール境界の管理をしっかりやらないと、モノリスと変わらなくなる
 
+</v-click>
+
+<v-click>
+
 マイクロサービスとモジュラモノリスのハイブリットもおすすめ。
 組織のスケールに合わせて少しずつマイクサービスへ移行する！
+
+</v-click>
 
 </div>
 </div>
@@ -207,15 +271,23 @@ layout: section
 
 ### メリット
 
+<v-click>
+
 - View（画面のレイアウト）とModel(ビジネスロジックやデータ管理)を分離できる
 - 同じModelでViewだけ切り替えることが可能
+
+</v-click>
 
 <br>
 
 ### デメリット
 
+<v-click>
+
 - 大規模アプリケーションでは、Controllerが肥大化しやすい
 - ViewとModelの結合度が高くなりがち
+
+</v-click>
 
 </div>
 </div>
@@ -245,17 +317,25 @@ layout: section
 
 ### メリット
 
+<v-click>
+
 - Presenterがイベントハンドリングを担う
  - ViewがModelの変更を監視する(Observe)パターン
  - パッシブビュー(Passive View)
 - パッシブビューによって完全にViewと分離できるので、よりテストがしやすい
 
+</v-click>
+
 <br>
 
 ### デメリット
 
+<v-click>
+
 - Presenterが肥大化しやすい
 - ViewとPresenterの1対1の関係が必要で、柔軟性に欠ける場合がある
+
+</v-click>
 
 </div>
 </div>
@@ -286,13 +366,21 @@ layout: section
 
 ### メリット
 
+<v-click>
+
 - MVPとそこまで変わらないが、ViewとViewModelの連携をフレームワークが担ってくれる
+
+</v-click>
 
 <br>
 
 ### デメリット
 
+<v-click>
+
 - 最初の学習コストが高い
+
+</v-click>
 
 </div>
 </div>
@@ -346,16 +434,24 @@ flowchart LR
 
 ### メリット
 
+<v-click>
+
 - 各層に特定の役割（責務）を与えることで、コードの見通しが良くなる（単一責任の原則 SRP）
 - 上層の変更に対して、下層が影響を受けない
   - 使い回しが出来る
+
+</v-click>
 
 <br>
 
 ### デメリット
 
+<v-click>
+
 - 下層の変更によって、上層が影響を受ける
 - つまり、インフラストラクチャーを変更すると、ビジネスロジックが影響を受けてしまう
+
+</v-click>
 
 </div>
 </div>
@@ -407,15 +503,23 @@ flowchart LR
 
 ### メリット
 
+<v-click>
+
 - Port層によってApplicationが守られているので、外部の変更に対して強い
 - Application（ビジネスロジック）の独立性が高く、テストが容易
+
+</v-click>
 
 <br>
 
 ### デメリット
 
+<v-click>
+
 - 初期の設計が複雑になりがち
 - 小規模なシステムだと過剰な設計になりうる
+
+</v-click>
 
 </div>
 </div>
@@ -446,15 +550,23 @@ flowchart LR
 
 ### メリット
 
+<v-click>
+
 - ドメインが何にも依存せず、外側の影響を受けない
 - テストが容易
 - ビジネスロジックの再利用性が高い
+
+</v-click>
 
 <br>
 
 ### デメリット
 
+<v-click>
+
 - 小規模なシステムには不向き
+
+</v-click>
 
 </div>
 </div>
@@ -486,14 +598,24 @@ flowchart LR
 
 ### メリット
 
-- ほげ
+<v-click>
+
+- テストが容易
+- フレームワークやデータベースの変更に強い
+- ビジネスロジックの明確な分離
+
+</v-click>
 
 <br>
 
 ### デメリット
 
+<v-click>
+
 - 小規模なシステムだと、作るものが多く冗長になりうる
 - 初期の学習コストが最も高い
+
+</v-click>
 
 </div>
 </div>
@@ -510,7 +632,8 @@ flowchart LR
   - 実装パターンやレイヤー設計のパターン
   - Repository、Domain Service、Value Object、Entityなど
   - こちらのみ：軽量DDD
-- 戦略的DDD
+
+- <span v-mark.circle.orange>戦略的DDD</span>
   - ドメイン（システムにおける本質的に重要な部分、ビジネスロジック）をモデリングする手法
   - ユビキタス言語、境界づけられたコンテキスト、ドメインエキスパート、サブドメインなど
   - 手法：イベントストーミング、ユースケース分析、ドメインストーリーテリングなど
@@ -552,10 +675,16 @@ layout: section
 
 ### メリット
 
+<v-click>
+
 - ドメインモデルの最適化
 - 更新系（NoSQL）と参照系（RDB）それぞれスケーリングが可能
 
+</v-click>
+
 ### デメリット
+
+<v-click>
 
 - データ整合性の管理
   - 結果整合性を受け入れられるか
@@ -563,6 +692,8 @@ layout: section
   - NewSQLの利用: Cloud Spanner、TiDB、CockroachDB
 - コマンドとクエリの2つのモデル開発、テスト
   - GraphQL等の活用、自動化
+
+</v-click>
 
 </div>
 </div>
@@ -597,18 +728,26 @@ layout: section
 
 ### メリット
 
+<v-click>
+
 - 耐障害性
 - 弾力性
 - リトライ、履歴、ロールバック、キャッシュ、流量制限等の責務を移譲
   - 高凝縮・疎結合
 
+</v-click>
+
 ### デメリット
+
+<v-click>
 
 - システムの複雑化、非同期通信による設計難易度
   - 結果のポーリングや、冪等性の担保など
 - 障害時に追いづらい
   - オブザーバビリティが重要
   - OpenTelemetry、Prometheus、Datadog、New Relic、Dynatraceなど
+
+</v-click>
 
 </div>
 </div>
@@ -628,186 +767,13 @@ layout: section
 - [アーキテクチャ特集](https://findy-tools.io/articles)
 
 ---
-layout: section
----
-
-# Section1
-
----
-
-## List Sample
-
-***
-
-<br>
-
-<v-clicks>
-
-- aaa
-- bbb
-- ccc
-
-</v-clicks>
-
-<style>
-  ul {
-    font-size: 18pt;
-  }
-</style>
-
----
-
-## Table Sample
-
-***
-
-Table Sample.
-
-|        |                              |
-| ------ | ---------------------------- |
-| AAAAAA | aaa                          |
-| BBB    | bbbbbbbb                     |
-| C      | <kbd>ccccccccccccccccc</kbd> |
-
----
-layout: section
----
-
-<div id="highlight-contents">
-highlight!!!
-</div>
-
-<style>
-  #highlight-contents {
-    font-size: 72pt;
-  }
-</style>
-
----
-layout: section
----
-
-# Section2
-
----
-
-## Code Sample
-
-***
-
-code sample.
-
-```java {*|3|2-4|1,5|*}
-class HelloWorld {
-	public static void main(String[] args) {
-		System.out.println("Hello, world.");
-	}
-}
-```
-
-<style>
-pre.slidev-code {
-    background-color: #1f2020;
-}
-</style>
-
----
-
-## Diagrams Sample
-
-***
-
-diagrams sample.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
----
-
-## Tips
-
-***
-
-The <span v-mark.red><code>code</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange>inline marks</span>
-, powered by [Link](https://roughnotation.com/)
-
-<logos-java class="text-7xl m-3 absolute right-20" />
-
----
 layout: center
 class: text-center
 hideInToc: true
 ---
 
 # End
+
+良いエンジニアライフを！
 
 <PoweredBySlidev mt-10 />
