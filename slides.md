@@ -519,7 +519,7 @@ flowchart LR
 layout: section
 ---
 
-# トレンドアーキテクチャー
+# トレンド
 
 ---
 layout: section
@@ -538,7 +538,7 @@ layout: section
 <div>
 <br>
 
-図
+<img src="/CQRS.drawio.svg" />
 
 </div>
 
@@ -546,17 +546,23 @@ layout: section
 
 <br>
 
+- Command Query Responsibility Segregatio: コマンド・クエリ責務分離
+- 複数の集約単位を跨るようなリードモデルが欲しくなる
+  - 一覧画面のようなもの、N+1問題
+
 ### メリット
 
-- ほげ
-
-<br>
+- ドメインモデルの最適化
+- 更新系（NoSQL）と参照系（RDB）それぞれスケーリングが可能
 
 ### デメリット
 
-- ほげ
-
-ほげ
+- データ整合性の管理
+  - 結果整合性を受け入れられるか
+- システムが増えるにつれ、管理コストも増加
+  - NewSQLの利用: Cloud Spanner、TiDB、CockroachDB
+- コマンドとクエリの2つのモデル開発、テスト
+  - GraphQL等の活用、自動化
 
 </div>
 </div>
@@ -578,7 +584,7 @@ layout: section
 <div>
 <br>
 
-図
+<img src="/ES.drawio.svg" />
 
 </div>
 
@@ -586,22 +592,40 @@ layout: section
 
 <br>
 
+- CQRSとはセットで語られることがほとんど
+- Axon, Kafka、Amazon Kinesis、SQS、Akkaなど
+
 ### メリット
 
 - 耐障害性
 - 弾力性
-
-<br>
+- リトライ、履歴、ロールバック、キャッシュ、流量制限等の責務を移譲
+  - 高凝縮・疎結合
 
 ### デメリット
 
-- 障害に追いづらい
+- システムの複雑化、非同期通信による設計難易度
+  - 結果のポーリングや、冪等性の担保など
+- 障害時に追いづらい
   - オブザーバビリティが重要
-
-ほげ
+  - OpenTelemetry、Prometheus、Datadog、New Relic、Dynatraceなど
 
 </div>
 </div>
+
+---
+
+### 参考文献
+
+***
+
+<br>
+
+- [SOLID原則](https://www.alpha.co.jp/blog/202302_01/)
+- [リアクティブ宣言](https://www.reactivemanifesto.org/)
+- [CQRSパターン](https://learn.microsoft.com/ja-jp/azure/architecture/patterns/cqrs)
+- [イベントソーシングパターン](https://learn.microsoft.com/ja-jp/azure/architecture/patterns/event-sourcing)
+- [アーキテクチャ特集](https://findy-tools.io/articles)
 
 ---
 layout: section
