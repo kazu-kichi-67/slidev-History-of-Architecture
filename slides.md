@@ -669,7 +669,7 @@ layout: section
 
 <br>
 
-- Command Query Responsibility Segregatio: コマンド・クエリ責務分離
+- Command Query Responsibility Segregation: コマンド・クエリ責務分離
 - 複数の集約単位を跨るようなリードモデルが欲しくなる
   - 一覧画面のようなもの、N+1問題
 
