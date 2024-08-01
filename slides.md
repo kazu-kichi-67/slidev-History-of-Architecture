@@ -360,7 +360,7 @@ layout: section
 <br>
 
 - データバインディング
-  - React.js: 単方向バインディング、Vue.ja: 双方向バインディング
+  - React.js: 単方向バインディング、Vue.js: 双方向バインディング
 
 <br>
 
